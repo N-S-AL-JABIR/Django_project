@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block content %}
+<h1>Create Account</h1>
+{% if data %}
+<table class="table table-bordered container">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Roll</th>
+      <th>Age</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in data %}
+    <tr>
+      <td>{{ row.name }}</td>
+      <td>{{ row.roll_no }}</td>
+      <td>{{ row.age }}</td>
+      <td><a class="btn btn-danger" href="{% url "delete_student" row.roll_no %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h2>No Data Available</h2>
+{% endif %} {% endblock content %}

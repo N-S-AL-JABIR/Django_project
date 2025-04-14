@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>This is My about page</h1>
+    <button><a href="/"> Home</a></button>
+    <button><a href="/filter/"> filter home</a></button>
+    <button><a href="/filter/about/"> about</a></button>
+    <button><a href="/filter/contact/"> contact</a></button>
+    
+    <button><a href="/filter/template_filter/"> Template Filter</a></button>
+
+    {% if age >= 18 %}
+    <h3>My name is {{name}} age: {{age}}, I am an adult</h3>
+    {% elif age >= 10 and age < 20 %}
+    <h3>My name is {{name}} age: {{age}}, I am a teenager</h3>
+    {% else %}
+    <h3>My name is {{name}} age: {{age}}, I am a child</h3>
+    {% endif %}
+
+    <h2>All course</h2>
+    {% for c in course %}
+    <h4>Name: {{c.name}} -- price:{{c.price}}</h4>
+    {% endfor %}
+  </body>
+</html>

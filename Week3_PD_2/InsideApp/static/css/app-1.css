@@ -1,0 +1,15 @@
+h1 {
+  color: green;
+}
+.button{
+  background-color: rgb(176, 233, 174);
+  text-decoration: none;
+  color: rgb(93, 51, 0);
+}
+.product-button {
+  display: flex;
+  justify-content: center;
+}
+.product-card{
+  background-color: rgb(240, 246, 204);
+}

@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% load static %} {% block title %}
+<title>Product</title>
+{% endblock title %} {% block head %}
+<link href="{% static 'css/app-1.css' %}" rel="stylesheet" />
+{% endblock head %} {% block content %}
+<h1 class="text-center p-4">ALL Product's</h1>
+<div class="container">
+  <div class="row gap-5">
+    {% for meal in meals %}
+    <div
+      class="product-card card col-6 border-0 p-2 text-center"
+      style="width: 18rem"
+    >
+      <img
+        src="{{ meal.strMealThumb  }}"
+        class="card-img-top rounded-2"
+        alt="{{ meal.name }}"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ meal.strMeal }}</h5>
+
+        <p>ID: {{ meal.idMeal }}</p>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock content %}
