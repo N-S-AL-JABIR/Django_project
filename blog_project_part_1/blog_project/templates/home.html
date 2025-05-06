@@ -18,7 +18,7 @@
           <p>
             {% for i in p.category.all %}
             <button class="btn btn-light btn-sm">{{i.name}}</button>
-            {% endfor %}
+            {% endfor %} 
           </p>
           <a href="{% url 'edit_post' p.id %}" class="btn btn-primary">Edit </a>
           <a href="{% url 'delete_post' p.id %}" class="btn btn-primary">Delete </a>

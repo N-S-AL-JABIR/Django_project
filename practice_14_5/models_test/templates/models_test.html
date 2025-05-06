@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% block content %} {% load crispy_forms_tags %}
+<h1>Model page</h1>
+<a class="mx-5" href='{% url "home" %}'>
+  <button class="btn btn-primary">Home</button>
+</a>
+<form class="container w-50" method="post" action="{% url 'models_test' %}">
+  {% csrf_token %} {{ form | crispy }}
+  <button class="btn btn-primary" type="submit">Submit</button>
+  {% endblock %}
+</form>

@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+      <div class="p-5 bg-light rounded-4 shadow">
+        <h1 class="mb-3">
+          Welcome to <span class="text-primary">TaskMaster</span>!
+        </h1>
+        <p class="mb-4">
+          Stay on top of your goals with simple and powerful task management.
+        </p>
+        <p class="mb-4">
+          Create, organize, and complete your daily tasks efficiently. Whether
+          it’s personal, academic, or work-related — manage it all here.
+        </p>
+        <a href="{% url 'add_task' %}" class="btn btn-primary btn-lg"
+          >Add Your First Task</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

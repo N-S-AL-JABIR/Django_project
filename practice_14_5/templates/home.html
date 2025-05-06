@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-5">
+  <h1>Welcome to the Home Page</h1>
+  <p>This is a simple Django form and models template example.</p>
+
+  <div class="gap-2 d-flex flex-wrap"> 
+    <a href='{% url "form_test" %}'>
+      <button class="btn btn-primary">Form</button>
+    </a>
+    <a href='{% url "models_test" %}'>
+      <button class="btn btn-primary"> Model </button>
+    </a>
+  </div>
+</div>
+{% endblock content %}

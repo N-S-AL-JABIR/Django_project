@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+
+      <div class="text-center mb-4">
+        <h2 class="display-6 text-primary">
+          {% if edit %}✏️ Edit Task{% else %}📝 Add New Task{% endif %}
+        </h2>
+        <p class="text-muted">
+          {% if edit %}
+            Update your task details below.
+          {% else %}
+            Fill in the form to create a new task.
+          {% endif %}
+        </p>
+      </div>
+
+      <form method="post" class="shadow p-4 bg-light rounded-3">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <div class="text-end mt-3">
+          {% if edit %}
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          {% else %}
+            <button type="submit" class="btn btn-success">Submit Task</button>
+          {% endif %}
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

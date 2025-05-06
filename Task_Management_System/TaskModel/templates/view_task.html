@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5">
+  <div class="text-center mb-4">
+    <h1 class="display-5">📋 All Your Tasks</h1>
+    <p class="text-muted">Manage, edit, and track your tasks below.</p>
+  </div>
+
+  <div class="row">
+    {% for p in post %}
+    <div class="col-md-6 col-lg-4 mb-4 d-flex">
+      <div class="card flex-fill shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title text-primary">Task: {{ p.taskTitle }}</h5>
+          <p class="card-text">{{ p.taskDescription }}</p>
+
+          <div class="mb-2">
+            {% for i in p.category.all %}
+              <span class="badge bg-secondary">{{ i.task_name }}</span>
+            {% endfor %}
+          </div>
+
+          {% if not p.is_completed %}
+            <a href="{% url 'edit_task' p.id %}" class="btn btn-outline-primary btn-sm me-2">Edit</a>
+            <a href="{% url 'delete_task' p.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+          {% else %}
+            <button class="btn btn-success btn-sm" disabled>✔ Completed</button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <div class="col-12 text-center">
+      <p class="text-muted">No tasks found. <a href="{% url 'add_task' %}">Add one now</a>!</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock content %}
